@@ -4,31 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="container">
-      <h2>Using the API</h2>
-      <p>
-        We built the API to be as self-documenting as possible, but if you find
-        yourself overwhelmed, we organized this site into four major areas.
-      </p>
-      <ul>
-        <li>
-          Getting started introduces you to the operations offered by the API.
-        </li>
-        <li>
-          API calls gives you a hands-on experience of those operations with an
-          interactive console.
-        </li>
-        <li>
-          Field reference lists and describes the type of information provided
-          by the API.
-        </li>
-        <li>
-          Contact Us If you need support or need to get in touch, this is the
-          place to look.
-        </li>
-      </ul>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><h2>Using the API</h2></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <h6>Show movies</h6>
+              <p>Will show list of movies</p>
+            </td>
+            <td>
+              <p>GET http://localhost:8080/movies</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Return data about a director by name</p>
+            </td>
+            <td>GET http://localhost:8080/movies/director/Peter%20Docter</td>
+          </tr>
+          <tr>
+            <td>Will return data about genre by name</td>
+            <td>GET http://localhost:8080/movies/genres/Thriller</td>
+          </tr>
+          <tr>
+            <td>Will delete a movie by title</td>
+            <td>DELETE http://localhost:8080/movies/Up</td>
+          </tr>
+          <tr>
+            <td>Will show list of users</td>
+            <td>GET http://localhost:8080/users</td>
+          </tr>
+          <tr>
+            <td>Will add new users</td>
+            <td>POST http://localhost:8080/users</td>
+          </tr>
+          <tr>
+            <td>Will updates user information</td>
+            <td>PUT http://localhost:8080/users/:Username</td>
+          </tr>
+          <tr>
+            <td>Will show list of users by username</td>
+            <td>GET http://localhost:8080/users/:Username</td>
+          </tr>
+          <tr>
+            <td>allows user to add movie to favorites</td>
+            <td>POST http://localhost:8080/users/:Username/favorites</td>
+          </tr>
+          <tr>
+            <td>allows user to remove movie from favorites</td>
+            <td>DELETE http://localhost:8080/users/:Username/favorites</td>
+          </tr>
+          <tr>
+            <td>Allows users to deregister by email</td>
+            <td>DELETE http://localhost:8080/users/:Email</td>
+          </tr>
+          <tr>
+            <td>Allows users to delete by username</td>
+            <td>DELETE http://localhost:8080/users/:Username</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Bootstrap Links -->
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"
+      ></script>
     </div>
   </body>
 </html>
