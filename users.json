@@ -1,0 +1,42 @@
+{
+    "_id" : ObjectId("5f87238ebbf7bc1e7bf42ada"),
+    "Username" : "Peach Halsey",
+    "Password" : "1234",
+    "Email" : "peachhalsey@gmail.com",
+    "Birthday" : "11/04/1990",
+    "FavoriteMovies" : [ ]
+}
+{
+    "_id" : ObjectId("5f87bedbbbf7bc1e7bf42ae5"),
+    "Username" : "Peach Halsey",
+    "Password" : "1234",
+    "Email" : "peachhalsey@gmail.com",
+    "Birthday" : ISODate("1990-11-04T04:00:00Z"),
+    "FavoriteMovies" : [ ]
+}
+{
+    "_id" : ObjectId("5f87beebbbf7bc1e7bf42ae6"),
+    "Username" : "Mona Waters",
+    "Password" : "5678",
+    "Email" : "mwaters@aol.com",
+    "Birthday" : ISODate("1990-11-04T04:00:00Z"),
+    "FavoriteMovies" : [ ]
+}
+{
+    "_id" : ObjectId("5f87bf2abbf7bc1e7bf42aeb"),
+    "Username" : "Evia Winslett",
+    "Password" : "9000",
+    "Email" : "eviawinslett@yahoo.com",
+    "Birthday" : ISODate("1980-12-09T05:00:00Z"),
+    "FavoriteMovies" : [
+            "Braveheart"
+    ]
+}
+{
+    "_id" : ObjectId("5f87bfb4bbf7bc1e7bf42aec"),
+    "Username" : "Emma Momonoka",
+    "Password" : "5555",
+    "Email" : "emmmo@gmail.com",
+    "Birthday" : ISODate("1990-11-04T04:00:00Z"),
+    "FavoriteMovies" : [ ]
+}
