@@ -4,7 +4,8 @@
   "description": "��#\u0000 \u0000m\u0000o\u0000v\u0000i\u0000e\u0000_\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000#\u0000 \u0000m\u0000o\u0000v\u0000i\u0000e\u0000_\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,19 @@
   },
   "homepage": "https://github.com/je-man/movie_api#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "connect": "^3.7.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.9",
     "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "serve-static": "^1.14.1",
     "uuid": "^8.3.1"
   },
