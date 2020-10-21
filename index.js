@@ -94,7 +94,14 @@ app.get("/movies/director/:Name", passport.authenticate('jwt', {session: false})
 
 //Create a new user without using authentication
 app.post(
-  '/users', (req, res) => {
+  '/users',
+  [
+    check('Username', 'Username is required').isLength({min: 5}),
+    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+    check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail()
+  ], 
+  (req, res) => {
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -257,6 +264,11 @@ app.get("/secreturl", (req, res) => {
 });
 
 // listen for requests
-app.listen(8080, () => {
-  console.log("Your app is listening on port 8080.");
+// app.listen(8080, () => {
+//   console.log("Your app is listening on port 8080.");
+// });
+
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('Listening on Port ' + port);
 });
