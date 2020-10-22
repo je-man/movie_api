@@ -27,11 +27,29 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
+//CORS
+//const cors = require('cors);
+//app.use(cors());
+let allowedOrigins = ['http://localhost:8080', 'https://ourflixapp.herokuapp.com/'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){ // If a specific origin isn’t found on the list of allowed origins
+      let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+      return callback(new Error(message ), false);
+    }
+    return callback(null, true);
+  }
+}));
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
+
+
 
 
 // mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true});
@@ -147,7 +165,7 @@ app.post(
 
 
 //Get all users
-app.get('/users',  (req, res) => {
+app.get('/users', (req, res) => {
   Users.find()
     .then((users) => {
       res.status(201).json(users);
