@@ -28,7 +28,7 @@ const passport = require('passport');
 require('./passport');
 
 //CORS
-//const cors = require('cors);
+const cors = require('cors');
 //app.use(cors());
 let allowedOrigins = ['http://localhost:8080', 'https://ourflixapp.herokuapp.com/'];
 
