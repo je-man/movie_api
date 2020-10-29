@@ -1,8 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import './main-view.scss';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 
 export default class MainView extends React.Component {
   constructor() {
@@ -13,7 +19,8 @@ export default class MainView extends React.Component {
     // Initialize the state to an empty object so we can destructure it later
     this.state = {
       movies: null,
-      selectedMovie: null
+      selectedMovie: null,
+      user: null
     };
 
   }
@@ -39,24 +46,46 @@ export default class MainView extends React.Component {
     });
   }
 
+  onLoggedIn(user) {
+    this.setState({
+      user
+    });
+  }
+
 
   render() {
     // If the state isn't initialized, this will throw on runtime
     // before the data is initially loaded
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user } = this.state;
+
+    if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
     // Before the movies have been loaded
     if (!movies) return <div className="main-view"/>;
 
     return (
       <div className="main-view">
-        {selectedMovie
-          ? <MovieView movie={selectedMovie}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
-          ))
-        }
+        <Container>
+          <Row>
+          
+            {selectedMovie
+              ? <MovieView movie={selectedMovie}/>
+              : movies.map(movie => (
+                <Col> 
+                    <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
+                </Col>
+              ))
+            }
+         </Row>
+        </Container>
       </div>
     );
   }
 }
+
+
+  //  <Container>
+  //     <Row>
+  //       <Col>1 of 3</Col>
+  //     </Row>
+  //   </Container>
