@@ -70,7 +70,7 @@ app.get("/documentation", (req, res) => {
 });
 
 //see all movies
-app.get('/movies', (req, res) => {
+app.get("/movies", passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -298,3 +298,5 @@ const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0',() => {
  console.log('Listening on Port ' + port);
 });
+
+
