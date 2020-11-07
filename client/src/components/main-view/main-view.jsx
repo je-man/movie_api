@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { GenreView } from "../genre-view/genre-view";
+import { DirectorView } from "../director-view/director-view";
 import { RegistrationView } from '../registration-view/registration-view';
+import UpdateView from '../update-view/update-view';
 import './main-view.scss';
 import MoviesList from '../movies-list/movies-list';
 import { About } from '../header/about';
@@ -82,7 +85,6 @@ export default class MainView extends React.Component {
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
-
   }
 
   getMovies(token) {
@@ -117,7 +119,7 @@ export default class MainView extends React.Component {
           {/* Nav start */}
           <Navbar sticky="top" expand="lg" className="mb-2 navbar-styles">
             <Navbar.Brand className="navbar-brand">
-              <Link to={`/`}>Victorville Film Archives</Link>
+              <Link to={`/`}>Movie Escape</Link>
             </Navbar.Brand>
             <Navbar.Toggle
               aria-controls="basic-navbar-nav"
@@ -175,26 +177,29 @@ export default class MainView extends React.Component {
             )}
           />
           <Route
-            path="/directors/:name"
-            render={({ match }) => (
-              <DirectorView
+            path="/movies/director/:name"
+            render={({ match }) => {
+              return (<DirectorView
                 director={movies.find(
                   (m) => m.Director.Name === match.params.name
-                )}
-                movies={movies}
-                addToFavourites={() => addToFavourites(movie)}
+                ).Director}
+                // movies={movies}
+                // addToFavourites={() => addToFavourites(movie)}
               />
-            )}
+              );
+            }}
           />
+
           <Route
-            path="/genres/:name"
-            render={({ match }) => (
-              <GenreView
+            path="/movies/genres/:name"
+            render={({ match }) => {
+              return (<GenreView
                 genre={movies.find((m) => m.Genre.Name === match.params.name)}
                 movies={movies}
                 addToFavourites={() => addToFavourites(movie)}
               />
-            )}
+              );
+            }}
           />
           <Route
             path="/users/"
@@ -227,9 +232,3 @@ export default class MainView extends React.Component {
   }
 }
 
-
-  //  <Container>
-  //     <Row>
-  //       <Col>1 of 3</Col>
-  //     </Row>
-  //   </Container>
