@@ -1,16 +1,19 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route} from "react-router-dom";
+//#0
+import { setMovies } from '../../actions/actions';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
+import MoviesList from '../movies-list/movies-list';
 import { MovieView } from '../movie-view/movie-view';
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { RegistrationView } from '../registration-view/registration-view';
 import UpdateView from '../update-view/update-view';
 import './main-view.scss';
-import MoviesList from '../movies-list/movies-list';
 import { About } from '../header/about';
 import { Contact } from '../header/contact';
 import Container from "react-bootstrap/Container";
@@ -20,16 +23,20 @@ import { ProfileView } from '../profile-view/profile-view';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 
-export default class MainView extends React.Component {
+class MainView extends React.Component {
   constructor() {
     // Call the superclass constructor
     // so React can initialize it
     super();
 
     // Initialize the state to an empty object so we can destructure it later
+    // this.state = {
+    //   movies: null,
+    //   selectedMovie: null,
+    //   user: null
+    // };
+
     this.state = {
-      movies: null,
-      selectedMovie: null,
       user: null
     };
 
@@ -50,11 +57,11 @@ export default class MainView extends React.Component {
     //   });
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-    this.setState({
-      user: localStorage.getItem('user')
-    });
-    this.getMovies(accessToken);
-  }
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
   }
 
   logOut() {
@@ -77,7 +84,6 @@ export default class MainView extends React.Component {
   //     user
   //   });
   onLoggedIn(authData) {
-    console.log(authData);
     this.setState({
       user: authData.user.Username
     });
@@ -92,10 +98,8 @@ export default class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-      // Assign the result to the state
-      this.setState({
-        movies: response.data
-      });
+      // #1
+      this.props.setMovies(response.data);
     })
     .catch(function (error) {
       console.log(error);
@@ -106,9 +110,11 @@ export default class MainView extends React.Component {
   render() {
     // If the state isn't initialized, this will throw on runtime
     // before the data is initially loaded
-    const { movies, selectedMovie, user } = this.state;
+     // #2
+    let { movies } = this.props;
+    let { user } = this.state;
 
-    if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+   //if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
     // Before the movies have been loaded
     if (!movies) return <div className="main-view"/>;
@@ -212,7 +218,7 @@ export default class MainView extends React.Component {
           <Route path="/about" component={About} />
         </Container>
       </Router>
-      
+
       // <div className="main-view">
       //   <Container>
       //     <Row>
@@ -231,4 +237,12 @@ export default class MainView extends React.Component {
     );
   }
 }
+
+// #3
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+// #4
+export default connect(mapStateToProps, { setMovies } )(MainView);
 

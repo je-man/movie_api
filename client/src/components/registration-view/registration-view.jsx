@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from 'axios';
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 // import "./registration-view.scss";
@@ -11,12 +13,37 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
-  const handleSubmit = () => {
-    console.log(username, password, birthday, email);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.logInFunc(username);
+  // const handleSubmit = () => {
+  //   console.log(username, password, birthday, email);
+  //   /* Send a request to the server for authentication */
+  //   /* then call props.onLoggedIn(username) */
+  //   props.logInFunc(username);
+  // };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const createdUser = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
+    };
+
+    axios
+      .post("https://ourflixapp.herokuapp.com/users", createdUser)
+      .then((response) => {
+        console.log(response);
+        console.log(response.data);
+        alert("User created successfully");
+        window.open("/client", "_self");
+      })
+      .catch((e) => {
+        console.log(e.response);
+        alert("Error processing request");
+      });
   };
+
 
   return (
     <Form className="registration-form">

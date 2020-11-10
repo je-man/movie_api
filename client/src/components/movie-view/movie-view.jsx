@@ -46,8 +46,9 @@ export class MovieView extends React.Component {
           </Link>
         </div>
           <br></br>
-        <button onClick={() => window.location.reload(false)}>back</button>
-
+          <Link to={`/`}>
+            <Button variant="primary">Home</Button>
+          </Link>
        </div>
 
         
