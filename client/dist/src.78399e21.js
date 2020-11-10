@@ -53840,9 +53840,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
-var _Form = _interopRequireDefault(require("react-bootstrap/Form"));
-
-var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
+var _reactBootstrap = require("react-bootstrap");
 
 var _reactRouterDom = require("react-router-dom");
 
@@ -53864,32 +53862,26 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function RegistrationView(props) {
-  var _useState = (0, _react.useState)(""),
+function RegistrationView() {
+  var _useState = (0, _react.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
       username = _useState2[0],
       setUsername = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(""),
+  var _useState3 = (0, _react.useState)(''),
       _useState4 = _slicedToArray(_useState3, 2),
       password = _useState4[0],
       setPassword = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(""),
+  var _useState5 = (0, _react.useState)(''),
       _useState6 = _slicedToArray(_useState5, 2),
       email = _useState6[0],
       setEmail = _useState6[1];
 
-  var _useState7 = (0, _react.useState)(""),
+  var _useState7 = (0, _react.useState)(''),
       _useState8 = _slicedToArray(_useState7, 2),
-      birthday = _useState8[0],
-      setBirthday = _useState8[1]; // const handleSubmit = () => {
-  //   console.log(username, password, birthday, email);
-  //   /* Send a request to the server for authentication */
-  //   /* then call props.onLoggedIn(username) */
-  //   props.logInFunc(username);
-  // };
-
+      dob = _useState8[0],
+      setDob = _useState8[1];
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -53897,59 +53889,74 @@ function RegistrationView(props) {
       Username: username,
       Password: password,
       Email: email,
-      Birthday: birthday
+      Birthday: dob
     };
 
-    _axios.default.post("https://ourflixapp.herokuapp.com/users", createdUser).then(function (response) {
+    _axios.default.post('https://flixology.herokuapp.com/users', createdUser).then(function (response) {
       console.log(response);
       console.log(response.data);
-      alert("User created successfully");
-      window.open("/client", "_self");
+      alert('User created successfully');
+      window.open('/client', '_self');
     }).catch(function (e) {
       console.log(e.response);
-      alert("Error processing request");
+      alert('Error processing request');
     });
   };
 
-  return _react.default.createElement(_Form.default, {
-    className: "registration-form"
-  }, _react.default.createElement(_Form.default.Group, {
+  return _react.default.createElement(_reactBootstrap.Container, null, _react.default.createElement("br", null), _react.default.createElement("br", null), _react.default.createElement(_reactBootstrap.Form, {
+    style: {
+      width: '32rem',
+      margin: 'auto',
+      textAlign: 'center'
+    }
+  }, _react.default.createElement(_reactBootstrap.Form.Group, {
     controlId: "formBasicUsername"
-  }, _react.default.createElement(_Form.default.Label, null, "Username:"), _react.default.createElement(_Form.default.Control, {
+  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Username"), _react.default.createElement(_reactBootstrap.Form.Control, {
     type: "text",
-    value: username,
     placeholder: "Enter username",
+    value: username,
     onChange: function onChange(e) {
       return setUsername(e.target.value);
     }
-  })), _react.default.createElement(_Form.default.Group, null, _react.default.createElement(_Form.default.Label, null, "Password:"), _react.default.createElement(_Form.default.Control, {
+  })), _react.default.createElement(_reactBootstrap.Form.Group, {
+    controlId: "formBasicPassword"
+  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Password"), _react.default.createElement(_reactBootstrap.Form.Control, {
     type: "password",
+    placeholder: "Password",
     value: password,
-    placeholder: "Enter password",
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     }
-  })), _react.default.createElement(_Form.default.Group, null, _react.default.createElement(_Form.default.Label, null, "Birth Date:"), _react.default.createElement(_Form.default.Control, {
-    type: "string",
-    value: birthday,
-    placeholder: "01/01/2001",
-    onChange: function onChange(e) {
-      return setBirthday(e.target.value);
-    }
-  })), _react.default.createElement(_Form.default.Group, null, _react.default.createElement(_Form.default.Label, null, "Email:"), _react.default.createElement(_Form.default.Control, {
+  })), _react.default.createElement(_reactBootstrap.Form.Group, {
+    controlId: "formBasicEmail"
+  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Email address"), _react.default.createElement(_reactBootstrap.Form.Control, {
     type: "email",
-    placeholder: "name@example.com",
     value: email,
+    placeholder: "Enter email",
     onChange: function onChange(e) {
       return setEmail(e.target.value);
     }
-  })), _react.default.createElement(_Button.default, {
-    variant: "btn-lg btn-dark btn-block",
+  })), _react.default.createElement(_reactBootstrap.Form.Group, {
+    controlId: "formBasicDate"
+  }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Date of Birth"), _react.default.createElement(_reactBootstrap.Form.Control, {
+    type: "date",
+    value: dob,
+    placeholder: "12/31/1986",
+    onChange: function onChange(e) {
+      return setDob(e.target.value);
+    }
+  })), _react.default.createElement(_reactBootstrap.Button, {
+    variant: "dark",
     type: "submit",
     onClick: handleSubmit
-  }, "Register"));
+  }, "Submit"), _react.default.createElement(_reactRouterDom.Link, {
+    to: "/client"
+  }, _react.default.createElement(_reactBootstrap.Button, {
+    variant: "dark link",
+    type: "submit"
+  }, "Cancel"))));
 }
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/update-view/update-view.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/update-view/update-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54814,7 +54821,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50532" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51160" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
