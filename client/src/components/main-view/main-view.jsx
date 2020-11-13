@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 //#0
 import { setMovies } from '../../actions/actions';
-import { LoginView } from '../login-view/login-view';
+import  LoginView  from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import MoviesList from '../movies-list/movies-list';
 import { MovieView } from '../movie-view/movie-view';
@@ -168,7 +168,8 @@ class MainView extends React.Component {
             render={() => {
               if (!user)
                 return (
-                  <LoginView logInFunc={(user) => this.onLoggedIn(user)} />
+                  <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  //<LoginView logInFunc={(user) => this.onLoggedIn(user)} />
                 );
               return <MoviesList movies={movies} />;
             }}

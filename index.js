@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express"),
   morgan = require("morgan");
 const app = express();
@@ -21,6 +22,8 @@ app.use(
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(methodOverride());
+app.use(express.static("public"));
+app.use("/client", express.static(path.join(__dirname, "client", "dist")));
 
 //authentication
 let auth = require('./auth')(app);
@@ -60,6 +63,10 @@ mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnified
 
 
 // GET requests
+
+app.get("/client/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 app.get("/", (req, res) => {
   res.send("Welcome to my movies club!");
