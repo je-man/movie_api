@@ -1,5 +1,124 @@
+.btn-primary {
+  color: #fff;
+  background-color: #99340b;
+  border-color: #343a40;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #42706b;
+  border-color: #343a40;
+}
+
+.min-vh-100 {
+  min-height: 100vh !important;
+  background-image: url(/login2.94a04539.png);
+  background-size: contain;
+}
+
+.login {
+  background: #42706b;
+  color: #fff;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  height: 500px;
+}
 .my-flix {
   color: steelblue;
+}
+.col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.btn card {
+  padding: 0.275rem 0.55rem;
+  color: white;
+  background-color: #983309;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.form-control[placeholder=Search] {
+  width: 30%;
+}
+.movieView-card {
+  margin: 0 auto;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 500px;
+}
+
+.movieView-body {
+  background-color: #338198;
+  color: white;
+}
+
+.movieView-body .badge {
+  background-color: white;
+  color: #338198;
+  padding: 0.7em 4em;
+  margin-bottom: 10px;
+}
+
+.movieView-body .badge:hover {
+  background-color: #99340b;
+  color: white;
+}
+
+.movieView-title {
+  font-size: xx-large;
+}
+.registration-form {
+  width: 100%;
+  padding: 40px;
+}
+
+img {
+  width: 100%;
+  height: 90%;
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #3f7269;
+  border-color: #343a40;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #99340b;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
 .container {
   width: 100%;
@@ -7,6 +126,26 @@
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.btn-link {
+  font-weight: 400;
+  color: #007bff;
+}
+.userProfile .badge,
+.favoriteMovies .badge {
+  background-color: #338198;
+  color: white;
+  padding: 0.7em 4em;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.userProfile .badge:hover,
+.favoriteMovies .badge:hover {
+  background-color: #99340b;
+  color: white;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */

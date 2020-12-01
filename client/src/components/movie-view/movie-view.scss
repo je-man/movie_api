@@ -1,0 +1,29 @@
+.movieView-card {
+  margin: 0 auto;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 500px;
+}
+
+.movieView-body {
+  background-color: #338198;
+  color: white;
+}
+
+.movieView-body .badge {
+  background-color: white;
+  color: #338198;
+  padding: 0.7em 4em;
+  margin-bottom: 10px;
+}
+
+.movieView-body .badge:hover {
+  background-color: #99340b;
+  color: white;
+}
+
+.movieView-title {
+  font-size: xx-large;
+}

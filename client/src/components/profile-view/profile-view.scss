@@ -1,0 +1,15 @@
+.userProfile .badge,
+.favoriteMovies .badge {
+  background-color: #338198;
+  color: white;
+  padding: 0.7em 4em;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.userProfile .badge:hover,
+.favoriteMovies .badge:hover {
+  background-color: #99340b;
+  color: white;
+}

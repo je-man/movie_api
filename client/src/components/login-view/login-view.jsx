@@ -76,14 +76,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-//import "./login-view.scss";
-
+import "./login-view.scss";
+// import logo from './logo.png';
 import { connect } from "react-redux";
-
 import { Link } from "react-router-dom";
-
 import axios from "axios";
-
 import { setUsername } from "../../actions/actions";
 
 // const mapStateToProps = (state) => {
@@ -121,8 +118,9 @@ function LoginView(props) {
 
   return (
     <section id="cover" className="min-vh-100">
-      <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-        <h1 className="display-4 py-2 text-truncate">Movie Escape</h1>
+      <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4 login">
+        <h2 className="py-2 text-truncate">Hey, good to see you again!</h2>
+        <p>Log in to get going</p>
         <Form
           style={{ width: "100%", position: "relative" }}
           className="justify-content-center"

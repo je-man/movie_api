@@ -48,6 +48,7 @@ import { Button, Card, Row, Col, Nav, Navbar } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 
 import '/index.scss';
+import './movie-card.scss';
 
 import { Link } from 'react-router-dom';
 import axios from "axios";
@@ -101,19 +102,13 @@ export class MovieCard extends React.Component {
                 </Card.Text>
                 <br />
                 <Link to={`/movies/${movie._id}`}>
-                  <Button variant='dark link'>Open</Button>
+                  <Button variant='card dark link'>Open</Button>
                 </Link>
-                <Link to={`/movies/director/${movie.Director.Name}`}>
-                  <Button variant='dark link' className='cursor'>
-                    Director
+                <Link>
+                  <Button variant="card dark link" onClick={() => this.addFavorite(movie)}>
+                    Add Favorite
                   </Button>
-                </Link>
-                <Link to={`/movies/genres/${movie.Genre.Name}`}>
-                  <Button variant='dark link'>Genre</Button>
-                </Link>
-                <Button variant="link" onClick={() => this.addFavorite(movie)}>
-                  Add Favorite
-                </Button> 
+                </Link> 
               </Col>
               <br />
             </Row>

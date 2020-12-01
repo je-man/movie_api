@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class contact extends Component {
+export class footer extends Component {
     render() {
         return (
             <div>
@@ -9,6 +9,4 @@ export class contact extends Component {
         )
     }
 }
-
-
 

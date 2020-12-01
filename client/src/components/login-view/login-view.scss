@@ -1,0 +1,26 @@
+.btn-primary {
+  color: #fff;
+  background-color: #99340b;
+  border-color: #343a40;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #42706b;
+  border-color: #343a40;
+}
+
+.min-vh-100 {
+  min-height: 100vh !important;
+  background-image: url(./login2.png);
+  background-size: contain;
+}
+
+.login {
+  background: #42706b;
+  color: #fff;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  height: 500px;
+}

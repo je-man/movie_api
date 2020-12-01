@@ -16,12 +16,16 @@ import UpdateView from '../update-view/update-view';
 import './main-view.scss';
 import { About } from '../header/about';
 import { Contact } from '../header/contact';
+import { LandingPage } from '../header/landing-page';
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { ProfileView } from '../profile-view/profile-view';
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 class MainView extends React.Component {
   constructor() {
@@ -121,60 +125,84 @@ class MainView extends React.Component {
 
     return (
       <Router basename="/client">
-        <Container className="main-view" fluid="true">
-          {/* Nav start */}
-          <Navbar sticky="top" expand="lg" className="mb-2 navbar-styles">
-            <Navbar.Brand className="navbar-brand">
+        <Container className="main-view site-header" fluid="true">
+          <Navbar expand="lg" className="main">
+          <Navbar.Brand className="navbar-brand">
               <Link to={`/`}>Movie Escape</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle
-              aria-controls="basic-navbar-nav"
-              className="bg-light"
-            />
-            <Navbar.Collapse
-              className="justify-content-end navbar-light"
-              id="basic-navbar-nav"
-            >
-              {!user ? (
-                <ul>
-                  <Link to={`/`}>
-                    <Button variant="link">login</Button>
-                  </Link>
-                  <Link to={`/register`}>
-                    <Button variant="link">Register</Button>
-                  </Link>
-                </ul>
-              ) : (
-                <ul>
-                  <Link to={`/`}>
-                    <Button variant="link" onClick={() => this.logOut()}>
-                      Log out
-                    </Button>
-                  </Link>
-                  <Link to={`/users/`}>
-                    <Button variant="link">Account</Button>
-                  </Link>
-                  <Link to={`/`}>
-                    <Button variant="link">Movies</Button>
-                  </Link>
-                </ul>
-              )}
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+                {!user ? (
+                  <ul>
+                    <Link to={`/login`}>
+                      <Button variant="link">login</Button>
+                    </Link>
+                    <Link to={`/register`}>
+                      <Button variant="link">Register</Button>
+                    </Link>
+                  </ul>
+                ) : (
+                  <Nav className="">
+                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="#link">Movies</Nav.Link>
+                    <NavDropdown title="Account" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">
+                            <Link to={`/users/`}>
+                                <Button variant="link">Account</Button>
+                            </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">
+                            <Link to={`/`}>
+                                <Button variant="link">Movies</Button>
+                            </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">
+                            <Link to={`/`}>
+                                <Button variant="link" onClick={() => this.logOut()}>
+                                    Log out
+                                </Button>
+                            </Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Divider />
+                    </NavDropdown>
+                  </Nav>
+                )}
             </Navbar.Collapse>
           </Navbar>
           {/* Nav end */}
+
+          {/* <Jumbotron>
+            <h1>Online Cinema</h1>
+            <p>
+              This is a simple hero unit
+            </p>
+            <p>
+              <Button variant="primary">Watch now</Button>
+            </p>
+          </Jumbotron> */}
+
+          
           <Route
             exact
             path="/"
             render={() => {
               if (!user)
                 return (
-                  <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                  //<LoginView logInFunc={(user) => this.onLoggedIn(user)} />
+                  <LandingPage/>
                 );
               return <MoviesList movies={movies} />;
             }}
           />
+
           <Route path="/register" render={() => <RegistrationView />} />
+          <Route path="/login" render={() => {
+              if (!user)
+                return (
+                  <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  //<LoginView logInFunc={(user) => this.onLoggedIn(user)} />
+                );
+              return <MoviesList movies={movies} />;
+            }} />
           <Route
             path="/movies/:movieId"
             render={({ match }) => (
@@ -183,8 +211,9 @@ class MainView extends React.Component {
               />
             )}
           />
+
           <Route
-            path="/movies/director/:name"
+            path="/director/:name"
             render={({ match }) => {
               return (<DirectorView
                 director={movies.find(
@@ -198,7 +227,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path="/movies/genres/:name"
+            path="/genres/:name"
             render={({ match }) => {
               return (<GenreView
                 genre={movies.find((m) => m.Genre.Name === match.params.name)}
@@ -219,22 +248,6 @@ class MainView extends React.Component {
           <Route path="/about" component={About} />
         </Container>
       </Router>
-
-      // <div className="main-view">
-      //   <Container>
-      //     <Row>
-          
-      //       {selectedMovie
-      //         ? <MovieView movie={selectedMovie}/>
-      //         : movies.map(movie => (
-      //           <Col> 
-      //               <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
-      //           </Col>
-      //         ))
-      //       }
-      //    </Row>
-      //   </Container>
-      // </div>
     );
   }
 }

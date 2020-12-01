@@ -10,6 +10,8 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Badge from 'react-bootstrap/Badge'
+import './profile-view.scss';
 
 export class ProfileView extends React.Component {
 
@@ -114,72 +116,126 @@ export class ProfileView extends React.Component {
 
     if (!movies) alert("Please sign in");
     return (
-      <div className="userProfile" style={{ display: "flex" }}>
-        <Container>
-          <Row>
-            <Col>
-              <Form style={{ width: "36rem", float: "left" }}>
-                <h1 style={{ textAlign: "center" }}>Profile Details</h1>
-                <Form.Group controlId="formBasicUsername">
-                  <h3>Username: </h3>
-                  <Form.Label>{this.state.username}</Form.Label>
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                  <h3>Email:</h3>
-                  <Form.Label>{this.state.email}</Form.Label>
-                </Form.Group>
-                <Form.Group controlId="formBasicDate">
-                  <h3>Date of Birth:</h3>
-                  <Form.Label>{this.state.dob}</Form.Label>
-                </Form.Group>
-                {
-                  <Link to={`/update/${this.state.username}`}>
-                    <Button variant="primary" type="link">
-                      Edit
-                    </Button>
+      // <div className="userProfile">
+      //     <Form style={{ width: "30rem", float: "left" }}>
+      //       <h1 style={{ textAlign: "center" }}>Profile Details</h1>
+      //       <Form.Group controlId="formBasicUsername">
+      //         <h3>Username: </h3>
+      //         <Form.Label>{this.state.username}</Form.Label>
+      //       </Form.Group>
+      //       <Form.Group controlId="formBasicEmail">
+      //         <h3>Email:</h3>
+      //         <Form.Label>{this.state.email}</Form.Label>
+      //       </Form.Group>
+      //       <Form.Group controlId="formBasicDate">
+      //         <h3>Date of Birth:</h3>
+      //         <Form.Label>{this.state.dob}</Form.Label>
+      //       </Form.Group>
+      //       {
+      //         <Link to={`/update/${this.state.username}`}>
+      //           <Button variant="primary" type="link">
+      //             Edit
+      //           </Button>
+      //         </Link>
+      //       }
+      //       <Button variant="danger" onClick={() => this.handleDelete()}>
+      //         Delete User
+      //       </Button>
+      //       <Link to={`/`}>
+      //         <Button variant="light" type="submit">
+      //           Back
+      //         </Button>
+      //       </Link>
+      //     </Form>
+      
+      //     <div
+      //       className="favoriteMovies"
+      //       style={{
+      //         float: "right",
+      //         textAlign: "center",
+      //         width: "28rem",
+      //       }}
+      //     >
+      //       <h1>Favorite Movies</h1>
+      //       {favoriteMovieList.map((movie) => {
+      //         return (
+      //           <div key={movie._id}>
+      //             <Card>
+      //               <Card.Body>
+      //                 <Link to={`/movies/${movie._id}`}>
+      //                   {/* <Card.Title>{movie.Title}</Card.Title> */}
+      //                   <Card.Img className='text-left img card-img' src={movie.ImagePath}/>
+      //                 </Link>
+      //               </Card.Body>
+      //             </Card>
+      //             <Button onClick={() => this.removeFavorite(movie)}>
+      //               Remove
+      //             </Button>
+      //           </div>
+      //         );
+      //       })}
+      //     </div>
+      // </div>
+
+      <Container>
+        <Row className="userProfile">
+          <Col>
+              <Form style={{ width: "30rem", float: "left" }}>
+                  <h4 style={{ textAlign: "center" }}>Profile Details</h4>
+                  <Form.Group controlId="formBasicUsername">
+                    <h5>Username: </h5>
+                    <Form.Label>{this.state.username}</Form.Label>
+                  </Form.Group>
+                  <Form.Group controlId="formBasicEmail">
+                    <h5>Email:</h5>
+                    <Form.Label>{this.state.email}</Form.Label>
+                  </Form.Group>
+                  <Form.Group controlId="formBasicDate">
+                    <h5>Date of Birth:</h5>
+                    <Form.Label>{this.state.dob}</Form.Label>
+                  </Form.Group>
+                  {
+                    <Link to={`/update/${this.state.username}`}>
+                      <Badge type="link">
+                        Edit
+                      </Badge>
+                    </Link>
+                  }
+                  <Badge onClick={() => this.handleDelete()}>
+                    Delete User
+                  </Badge>
+                  <Link to={`/`}>
+                    <Badge type="submit">
+                      Back
+                    </Badge>
                   </Link>
-                }
-                <Button variant="danger" onClick={() => this.handleDelete()}>
-                  Delete User
-                </Button>
-                <Link to={`/`}>
-                  <Button variant="light" type="submit">
-                    Back
-                  </Button>
-                </Link>
-              </Form>
-            </Col>
-            <Col>
-              <div
-                className="favoriteMovies"
-                style={{
-                  float: "right",
-                  textAlign: "center",
-                  width: "28rem",
-                }}
-              >
-                <h1>Favorite Movies</h1>
-                {favoriteMovieList.map((movie) => {
-                  return (
-                    <div key={movie._id}>
-                      <Card>
-                        <Card.Body>
-                          <Link to={`/movies/${movie._id}`}>
-                            <Card.Title>{movie.Title}</Card.Title>
-                          </Link>
-                        </Card.Body>
-                      </Card>
-                      <Button onClick={() => this.removeFavorite(movie)}>
-                        Remove
-                      </Button>
-                    </div>
-                  );
-                })}
+                </Form>
+          </Col>
+        </Row>
+      
+      <Row className="favoriteMovies">
+        <Col>
+          <h4>Favorite Movies</h4>
+          {favoriteMovieList.map((movie) => {
+              return (
+              <div key={movie._id}>
+                  <Card style={{ width: '15rem' }}>
+                    <Card.Body>
+                        <Link to={`/movies/${movie._id}`}>
+                        {/* <Card.Title>{movie.Title}</Card.Title> */}
+                        <Card.Img className='img card-img' src={movie.ImagePath}/>
+                        </Link>
+                    </Card.Body>
+                  </Card>
+                  <Badge onClick={() => this.removeFavorite(movie)}>
+                       Remove
+                  </Badge>
               </div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+              );
+          })}
+        </Col>
+      </Row>
+    </Container>
     );
   }
 }
