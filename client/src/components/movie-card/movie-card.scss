@@ -6,13 +6,39 @@
   max-width: 100%;
 }
 
-// .card {
-//   background-color: #8c9fe1;
-//   color: white;
-// }
-
 .btn card {
   padding: 0.275rem 0.55rem;
   color: white;
   background-color: #983309;
+}
+
+.movie-card .img {
+  height: 15rem;
+}
+
+.movie-card .card {
+  margin: 10px;
+}
+
+.movie-card .p-4 {
+  background-color: #031424;
+  color: white;
+}
+
+.cardTitle {
+  color: white;
+}
+
+.cardTitle:hover {
+  text-decoration: none;
+  color: #cf6766;
+}
+
+.cardTitle .badge-primary {
+  background-color: #8eaebd;
+  padding: 5px 10px;
+}
+
+.cardTitle .badge-primary:hover {
+  background-color: #cf6766;
 }

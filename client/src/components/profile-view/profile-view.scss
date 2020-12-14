@@ -1,6 +1,15 @@
+.userProfile {
+  text-align: center;
+  padding: 50px;
+}
+
+.profileView {
+  color: #fff;
+}
+
 .userProfile .badge,
 .favoriteMovies .badge {
-  background-color: #338198;
+  background-color: #8eaebd;
   color: white;
   padding: 0.7em 4em;
   margin-right: 5px;
@@ -10,6 +19,63 @@
 
 .userProfile .badge:hover,
 .favoriteMovies .badge:hover {
-  background-color: #99340b;
+  background-color: #cf6766;
   color: white;
+}
+
+.favoriteMovies .card {
+  margin-right: 20px;
+}
+
+.favoriteMovies .img {
+  width: 100%;
+}
+
+.profileName {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profile-social a {
+  color: #cf6766;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.profileName img {
+  width: 150px;
+  height: 150px;
+}
+
+.userProfile .form-group {
+  border: 1px solid #cf6766;
+  //width: 150px;
+  height: 120px;
+  margin-right: 20px;
+  padding: 15px;
+  display: inline-block;
+}
+
+//MEDIA QUERIES
+
+//very small screen
+@media only screen and (max-width: 600px) {
+  .userProfile .form-group {
+    border: 1px solid #cf6766;
+    width: 55%;
+    height: 120px;
+    //padding: 15px;
+    //display: inline;
+  }
+
+  .userProfile .badge,
+  .favoriteMovies .badge {
+    background-color: #8eaebd;
+    color: white;
+    padding: 0.4em 2.2em;
+    margin-left: 5px;
+    margin-right: 4px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+  }
 }

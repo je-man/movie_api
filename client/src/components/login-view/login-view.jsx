@@ -119,14 +119,14 @@ function LoginView(props) {
   return (
     <section id="cover" className="min-vh-100">
       <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4 login">
-        <h2 className="py-2 text-truncate">Hey, good to see you again!</h2>
+        <h4 className="py-2 text-truncate">Hey, good to see you again!</h4>
         <p>Log in to get going</p>
         <Form
           style={{ width: "100%", position: "relative" }}
           className="justify-content-center"
-        >
+         >
           <Form.Group controlId="formBasicUsername">
-            <Form.Label>Username</Form.Label>
+            {/* <Form.Label>Username</Form.Label> */}
             <Form.Control
               type="text"
               placeholder="Enter username"
@@ -136,7 +136,7 @@ function LoginView(props) {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            {/* <Form.Label>Password</Form.Label> */}
             <Form.Control
               type="password"
               placeholder="Password"
@@ -145,11 +145,11 @@ function LoginView(props) {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button className="loginButton" type="submit" onClick={handleSubmit}>
             Sign In
           </Button>
           <Link to={`/register`}>
-            <Button variant="link">Register</Button>
+            <Button className="registerButton" variant="link">Register</Button>
           </Link>
         </Form>
       </div>

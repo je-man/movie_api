@@ -10,8 +10,8 @@ import { setFilter } from '../../actions/actions';
 function VisibilityFilterInput(props) {
   return <Form.Control
     onChange={e => props.setFilter(e.target.value)}
-    value={props.visibilityFilter}
-    placeholder="Search"
+    value={props.visibilityFilter} className="text-center"
+    placeholder="What are you looking for?"
   />;
 }
 

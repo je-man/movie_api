@@ -1,29 +1,67 @@
 .btn-primary {
   color: #fff;
   background-color: #99340b;
-  border-color: #343a40;
 }
 
 .btn-primary:hover {
   color: #fff;
   background-color: #42706b;
-  border-color: #343a40;
 }
 
 .min-vh-100 {
-  min-height: 100vh !important;
-  background-image: url(/login2.94a04539.png);
-  background-size: contain;
+  background: url(/background.f7d6f6b4.jpg) no-repeat center center fixed;
+  display: table;
+  height: 200px;
+  position: relaive;
+  width: 100%;
+  background-size: cover;
+  color: #fff;
+  padding-top: 100px;
 }
 
-.login {
-  background: #42706b;
-  color: #fff;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  border: 1px solid #dcdcdc;
-  height: 500px;
+.min-vh-100 .loginButton:hover {
+  background-color: #cf6766;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
 }
+
+.min-vh-100 .loginButton {
+  background-color: #8eaebd;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: white;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.min-vh-100 .registerButton {
+  background-color: #cf6766;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+
+.min-vh-100 .registerButton:hover {
+  background-color: #8eaebd;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap");
 .my-flix {
   color: steelblue;
 }
@@ -40,6 +78,37 @@
   color: white;
   background-color: #983309;
 }
+
+.movie-card .img {
+  height: 15rem;
+}
+
+.movie-card .card {
+  margin: 10px;
+}
+
+.movie-card .p-4 {
+  background-color: #031424;
+  color: white;
+}
+
+.cardTitle {
+  color: white;
+}
+
+.cardTitle:hover {
+  text-decoration: none;
+  color: #cf6766;
+}
+
+.cardTitle .badge-primary {
+  background-color: #8eaebd;
+  padding: 5px 10px;
+}
+
+.cardTitle .badge-primary:hover {
+  background-color: #cf6766;
+}
 .form-control {
   display: block;
   width: 100%;
@@ -54,11 +123,11 @@
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin-bottom: 20px;
 }
 
-.form-control[placeholder=Search] {
-  width: 30%;
+.form-control[placeholder="What are you looking for?"] {
+  width: 70%;
+  margin: auto;
 }
 .movieView-card {
   margin: 0 auto;
@@ -66,48 +135,63 @@
 
 .movie-poster {
   width: 100%;
-  height: 500px;
+  height: 350px;
 }
 
 .movieView-body {
-  background-color: #338198;
+  background-color: #031424;
   color: white;
 }
 
 .movieView-body .badge {
-  background-color: white;
-  color: #338198;
+  background-color: #8eaebd;
+  color: #fff;
   padding: 0.7em 4em;
   margin-bottom: 10px;
 }
 
 .movieView-body .badge:hover {
-  background-color: #99340b;
+  background-color: #cf6766;
   color: white;
 }
 
 .movieView-title {
   font-size: xx-large;
 }
+
+.card-title .float-right {
+  color: white;
+}
+
+.movieView-title .float-right {
+  border: 1px solid #cf6766;
+  background-color: #cf6766;
+}
+
+.movieView-title .float-right:hover {
+  border: 1px solid #8eaebd;
+  background-color: #8eaebd;
+}
 .registration-form {
   width: 100%;
-  padding: 40px;
-}
-
-img {
-  width: 100%;
-  height: 90%;
-}
-
-.btn-dark {
+  margin: auto;
+  width: 40%;
+  padding: 50px;
   color: #fff;
-  background-color: #3f7269;
+}
+
+.registration-form .btn-dark {
+  color: #fff;
+  background-color: #8eaebd;
   border-color: #343a40;
+}
+
+.registration-form .btn-dark:hover {
+  background-color: #cf6766;
 }
 
 .form-control {
   display: block;
-  width: 100%;
   height: calc(2.25rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -116,25 +200,351 @@ img {
   color: #495057;
   background-color: white;
   background-clip: padding-box;
-  border: 1px solid #99340b;
-  border-radius: 0.25rem;
+  border: 1px solid #fff;
+  border-radius: 1rem;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
 }
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+
+@media only screen and (max-width: 600px) {
+  .registration-form {
+    width: 100%;
+    margin: auto;
+    width: 70%;
+    padding: 20px;
+    color: #fff;
+  }
+}
+* {
+  font-family: Verdana, Tahoma, sans-serif, Helvetica, sans-serif;
 }
 
-.btn-link {
-  font-weight: 400;
-  color: #007bff;
+.navbar {
+  background-color: #3c3c3c;
+  padding: 1% 0;
+  font-size: 1.2em;
 }
+
+.navbar-brand a,
+.login-register .btn,
+.navbar a,
+.nav-link,
+#basic-nav-dropdown,
+.navbar-nav a {
+  color: #d6d1d5;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background-color: #cf6766;
+  color: white;
+}
+
+.login-btn {
+  background-color: #8eaebd;
+  color: white;
+  padding: 3px 20px;
+}
+
+.main-view {
+  background-color: #031424;
+}
+.home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: url(/main-landing.5eadcbe9.jpg) no-repeat center center fixed;
+  display: table;
+  position: relative;
+  background-size: cover;
+  height: 600px;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.landing-text {
+  color: #000;
+  font-weight: 700;
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 30px;
+}
+
+.padding {
+  padding: 80px 0;
+  background-color: #031424;
+  color: white;
+}
+
+.padding h3::after {
+  content: "";
+  background: #cf6766;
+  display: block;
+  height: 3px;
+  width: 230px;
+  margin: 20px auto 5px;
+}
+
+.padding img {
+  width: 100%;
+}
+
+.fixed {
+  background: url(/background.fa77dd51.jpg) no-repeat center center fixed;
+  display: table;
+  height: 400px;
+  position: relaive;
+  width: 100%;
+  background-size: cover;
+}
+
+.home .badge-primary {
+  background-color: #8eaebd;
+  color: #fff;
+  padding: 13px 40px;
+}
+
+.home .badge-primary:hover {
+  background-color: #cf6766;
+  color: #fff;
+}
+
+.col-lg-3 .img-circle {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  position: relative;
+  margin-top: 40px;
+}
+
+.col-lg-3 .img-circle:hover {
+  border: 4px solid #8eaebd;
+}
+
+.col-lg-3 {
+  margin: 40px auto;
+}
+
+.img-border {
+  padding: 70px 20px 20px;
+  background-color: #d4ced2;
+  color: #30415d;
+}
+
+.img-border .img-circle {
+  top: -110px;
+  position: absolute;
+  left: calc(60% - 30%);
+  border: 2px solid white;
+}
+
+.img-border h5 {
+  font-style: italic;
+  color: #cf6766;
+}
+
+.title-three {
+  margin-bottom: 30px;
+}
+
+.title-three .row {
+  padding: 30px;
+}
+
+.title-three h4 {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  font-size: 200%;
+  font-weight: 700;
+}
+
+.title-three h4::after {
+  content: "";
+  background: #cf6766;
+  display: block;
+  height: 3px;
+  width: 180px;
+  margin: 20px auto 5px;
+}
+
+.title-three .badge-primary {
+  background-color: #8eaebd;
+  color: #fff;
+  padding: 13px 40px;
+}
+
+.title-three .badge-primary:hover {
+  background-color: #cf6766;
+  color: #fff;
+}
+
+.landing-last {
+  background: url(/landing-last.4abb2a8b.jpg) no-repeat center center fixed;
+  display: table;
+  height: 300px;
+  position: relaive;
+  width: 100%;
+  background-size: cover;
+}
+
+.landing-center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.landing-center h3,
+.landing-center p {
+  width: 500px;
+  background-color: #30415d;
+  color: white;
+  padding: 7px;
+}
+
+.landing-center .btn {
+  background-color: #8eaebd;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+
+.landing-center .btn:hover {
+  background-color: #cf6766;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+
+.how-works .col-lg-3,
+.badge-primary {
+  text-align: center;
+}
+
+.how-works {
+  padding: 70px;
+  background-color: #d7d2d6;
+}
+
+.how-works .col-lg-3 h5 {
+  border: 2px solid #8eaebd;
+  border-radius: 50%;
+  width: 45px;
+  height: 40px;
+  text-align: center;
+  margin: auto;
+  color: white;
+  background-color: #8eaebd;
+}
+
+.how-works .col-lg-3 h6 {
+  margin-top: 45px;
+}
+
+.how-works .col-lg-3 img {
+  height: 120px;
+}
+
+.how-works h3 {
+  font-style: italic;
+}
+
+.how-works h3::after {
+  content: "";
+  background: #cf6766;
+  display: block;
+  height: 3px;
+  width: 230px;
+  margin: 20px auto 5px;
+}
+
+.how-works .badge-primary {
+  background-color: #8eaebd;
+  color: #fff;
+  padding: 13px 40px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.how-works .badge-primary:hover {
+  background-color: #cf6766;
+  color: #fff;
+}
+
+.categories {
+  color: white;
+  padding: 80px 200px;
+  text-align: center;
+}
+
+.categories h3::after {
+  content: "";
+  background: #cf6766;
+  display: block;
+  height: 3px;
+  width: 230px;
+  margin: 20px auto 5px;
+}
+
+.categories .col img {
+  width: 80px;
+  height: 80px;
+  background-color: #8eaebd;
+  padding: 10px 13px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+.categories .col {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #cf6766;
+  font-style: italic;
+  font-weight: 400;
+  height: 120px;
+}
+
+@media only screen and (max-width: 600px) {
+  .categories {
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+  }
+
+  .how-works h3 {
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  .how-works .col-lg-3 img {
+    height: 120px;
+    width: 180px;
+  }
+
+  .home .landing-text {
+    text-align: center;
+    color: #fff;
+  }
+
+  .home .landing-last h3 {
+    margin-top: 50px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .categories {
+    color: white;
+    padding: 20px 80px;
+    text-align: center;
+  }
+}
+.userProfile {
+  text-align: center;
+  padding: 50px;
+}
+
+.profileView {
+  color: #fff;
+}
+
 .userProfile .badge,
 .favoriteMovies .badge {
-  background-color: #338198;
+  background-color: #8eaebd;
   color: white;
   padding: 0.7em 4em;
   margin-right: 5px;
@@ -144,8 +554,75 @@ img {
 
 .userProfile .badge:hover,
 .favoriteMovies .badge:hover {
-  background-color: #99340b;
+  background-color: #cf6766;
   color: white;
+}
+
+.favoriteMovies .card {
+  margin-right: 20px;
+}
+
+.favoriteMovies .img {
+  width: 100%;
+}
+
+.profileName {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profile-social a {
+  color: #cf6766;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.profileName img {
+  width: 150px;
+  height: 150px;
+}
+
+.userProfile .form-group {
+  border: 1px solid #cf6766;
+  height: 120px;
+  margin-right: 20px;
+  padding: 15px;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+  .userProfile .form-group {
+    border: 1px solid #cf6766;
+    width: 55%;
+    height: 120px;
+  }
+
+  .userProfile .badge,
+.favoriteMovies .badge {
+    background-color: #8eaebd;
+    color: white;
+    padding: 0.4em 2.2em;
+    margin-left: 5px;
+    margin-right: 4px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+  }
+}
+.main-footer {
+  background-color: #3c3c3c;
+  padding: 1% 0;
+  font-size: 1.2em;
+  color: #d5d5d5;
+}
+
+.hr-color {
+  background-color: #cf6766;
+}
+
+.footer-social a {
+  color: #cf6766;
+  margin-right: 10px;
+  font-size: 10px;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */

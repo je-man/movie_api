@@ -44,7 +44,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col, Nav, Navbar } from 'react-bootstrap';
+import { Button, Card, Row, Badge, Col, Nav, Navbar } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 
 import '/index.scss';
@@ -78,43 +78,74 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
 
     return (
-      <Card style={{ width: '50%' }}>
-        <Col>
-          <Card.Body>
-            <Card.Header className='text-center'>
-              <Link className='link-color' to={`/movies/${movie._id}`}>
-                <strong>{movie.Title}</strong>
-              </Link>
-            </Card.Header>
+      // <Card style={{ width: '50%' }}>
+      //   <Col>
+      //     <Card.Body>
+      //       <Card.Header className='text-center'>
+      //         <Link className='link-color' to={`/movies/${movie._id}`}>
+      //           <strong>{movie.Title}</strong>
+      //         </Link>
+      //       </Card.Header>
 
-            <Row>
-              <Col sm={6}>
-                <br />
-                <Card.Img
-                  className='text-left img'
-                  src={movie.ImagePath}
+      //       <Row>
+      //         <Col sm={6}>
+      //           <br />
+      //           <Card.Img
+      //             className='text-left img'
+      //             src={movie.ImagePath}
+      //           />
+      //         </Col>
+      //         <Col sm={6}>
+      //           <br />
+      //           <Card.Text className='text-center'>
+      //             {movie.Description}
+      //           </Card.Text>
+      //           <br />
+      //           <Link to={`/movies/${movie._id}`}>
+      //             <Button variant='card dark link'>Open</Button>
+      //           </Link>
+      //           <Link>
+      //             <Button variant="card dark link" onClick={() => this.addFavorite(movie)}>
+      //               Add Favorite
+      //             </Button>
+      //           </Link> 
+      //         </Col>
+      //         <br />
+      //       </Row>
+      //     </Card.Body>
+      //   </Col>
+      // </Card>
+
+    <div className="movie-card mx-auto">
+      <Row>
+          <Col className="col-sm" md='4'>
+              <Card style={{ width: '20rem'}}>
+              <Card.Img variant="top" className='text-left img'
+                  src={movie.ImagePath} 
                 />
-              </Col>
-              <Col sm={6}>
-                <br />
-                <Card.Text className='text-center'>
-                  {movie.Description}
-                </Card.Text>
-                <br />
-                <Link to={`/movies/${movie._id}`}>
-                  <Button variant='card dark link'>Open</Button>
-                </Link>
-                <Link>
-                  <Button variant="card dark link" onClick={() => this.addFavorite(movie)}>
-                    Add Favorite
-                  </Button>
-                </Link> 
-              </Col>
-              <br />
-            </Row>
-          </Card.Body>
-        </Col>
-      </Card>
+                <Card.Body className="p-4">
+                  <Card.Title>
+                      <Link className='link-color cardTitle' to={`/movies/${movie._id}`}>
+                       <strong>{movie.Title}</strong>
+                        <Link to={`/movies/${movie._id}`}>
+                          {/* <Button variant='card dark link'>Open</Button> */}
+                          <Badge variant="primary link text float-right">open</Badge>
+                        </Link>
+                      </Link>
+                      <hr className='hr-light' />
+                  </Card.Title>
+                  <Card.Text className="text-left">
+                      {/* {movie.Description} */}
+                      <div className="float-left">{movie.Genre.Name}</div>
+                      <div className="float-right">{movie.Director.Name}</div>
+                  </Card.Text>
+                  
+              </Card.Body>
+              </Card>
+          </Col>
+      </Row>
+    </div>
+
   
     );
   }

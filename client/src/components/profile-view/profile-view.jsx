@@ -10,8 +10,14 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Badge from 'react-bootstrap/Badge'
+import Badge from 'react-bootstrap/Badge';
+
 import './profile-view.scss';
+import ProfilePic from './profile.png';
+
+// font awesome imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faYoutube, faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export class ProfileView extends React.Component {
 
@@ -177,45 +183,70 @@ export class ProfileView extends React.Component {
       //     </div>
       // </div>
 
-      <Container>
-        <Row className="userProfile">
+      <Container className="profileView">
+        <div className="profileName">
+          <img src={ProfilePic} />
+          <h3>Hi,  {this.state.username}</h3>
+          <hr className='hr-color' />
+          <div className="row">
+            <div className="col">
+                <div className="profile-social text-center">
+                  <a href="https://www.youtube.com" clLinkssNLinkme="youtube social">
+                    <FontAwesomeIcon icon={faYoutube} size="2x" />
+                  </a>
+                  <a href="https://www.facebook.com" className="facebook social">
+                    <FontAwesomeIcon icon={faFacebook} size="2x" />
+                  </a>
+                  <a href="https://www.twitter.com" className="twitter social">
+                    <FontAwesomeIcon icon={faTwitter} size="2x" />
+                  </a>
+                  <a href="https://www.instagram.com" className="instagram social">
+                    <FontAwesomeIcon icon={faInstagram} size="2x" />
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h5 className="text-center">Profile Details</h5>
+        <Row  className="userProfile">
           <Col>
-              <Form style={{ width: "30rem", float: "left" }}>
-                  <h4 style={{ textAlign: "center" }}>Profile Details</h4>
-                  <Form.Group controlId="formBasicUsername">
-                    <h5>Username: </h5>
-                    <Form.Label>{this.state.username}</Form.Label>
-                  </Form.Group>
-                  <Form.Group controlId="formBasicEmail">
-                    <h5>Email:</h5>
-                    <Form.Label>{this.state.email}</Form.Label>
-                  </Form.Group>
-                  <Form.Group controlId="formBasicDate">
-                    <h5>Date of Birth:</h5>
-                    <Form.Label>{this.state.dob}</Form.Label>
-                  </Form.Group>
-                  {
-                    <Link to={`/update/${this.state.username}`}>
-                      <Badge type="link">
-                        Edit
-                      </Badge>
-                    </Link>
-                  }
-                  <Badge onClick={() => this.handleDelete()}>
-                    Delete User
-                  </Badge>
-                  <Link to={`/`}>
-                    <Badge type="submit">
-                      Back
+            <Form style={{ width: "30rem", float: "left" }}>
+                <Form.Group controlId="formBasicUsername">
+                  <h6>Username: </h6>
+                  <Form.Label>{this.state.username}</Form.Label>
+                </Form.Group>
+                <Form.Group controlId="formBasicEmail">
+                  <h6>Email:</h6>
+                  <Form.Label>{this.state.email}</Form.Label>
+                </Form.Group>
+                <Form.Group controlId="formBasicDate">
+                  <h6>Date of Birth:</h6>
+                  <Form.Label>{this.state.dob}</Form.Label>
+                </Form.Group>
+                {
+                  <Link to={`/update/${this.state.username}`}>
+                    <Badge type="link">
+                      Edit
                     </Badge>
                   </Link>
-                </Form>
+                }
+                <Badge onClick={() => this.handleDelete()}>
+                  Delete User
+                </Badge>
+                <Link to={`/`}>
+                  <Badge type="submit">
+                    Back
+                  </Badge>
+                </Link>
+            </Form>
           </Col>
         </Row>
       
-      <Row className="favoriteMovies">
-        <Col>
-          <h4>Favorite Movies</h4>
+      <div className="favorites">
+        <h5 className="text-center">Favorite Movies</h5>
+        <Container>
+          <Row  className="favoriteMovies">
           {favoriteMovieList.map((movie) => {
               return (
               <div key={movie._id}>
@@ -233,8 +264,9 @@ export class ProfileView extends React.Component {
               </div>
               );
           })}
-        </Col>
-      </Row>
+          </Row>
+        </Container>
+      </div>
     </Container>
     );
   }

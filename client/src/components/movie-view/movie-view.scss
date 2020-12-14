@@ -4,26 +4,40 @@
 
 .movie-poster {
   width: 100%;
-  height: 500px;
+  height: 350px;
 }
 
 .movieView-body {
-  background-color: #338198;
+  background-color: #031424;
   color: white;
 }
 
 .movieView-body .badge {
-  background-color: white;
-  color: #338198;
+  background-color: #8eaebd;
+  color: #fff;
   padding: 0.7em 4em;
   margin-bottom: 10px;
 }
 
 .movieView-body .badge:hover {
-  background-color: #99340b;
+  background-color: #cf6766;
   color: white;
 }
 
 .movieView-title {
   font-size: xx-large;
+}
+
+.card-title .float-right {
+  color: white;
+}
+
+.movieView-title .float-right {
+  border: 1px solid #cf6766;
+  background-color: #cf6766;
+}
+
+.movieView-title .float-right:hover {
+  border: 1px solid #8eaebd;
+  background-color: #8eaebd;
 }

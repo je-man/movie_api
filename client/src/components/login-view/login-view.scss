@@ -1,26 +1,67 @@
 .btn-primary {
   color: #fff;
   background-color: #99340b;
-  border-color: #343a40;
 }
 
 .btn-primary:hover {
   color: #fff;
   background-color: #42706b;
-  border-color: #343a40;
 }
 
 .min-vh-100 {
-  min-height: 100vh !important;
-  background-image: url(./login2.png);
-  background-size: contain;
+  // min-height: 100vh !important;
+  // background-image: url(./login2.png);
+  // background-size: contain;
+  background: url(./background.jpg) no-repeat center center fixed;
+  display: table;
+  height: 200px;
+  position: relaive;
+  width: 100%;
+  background-size: cover;
+  //background-color: #d4ced2;
+  color: #fff;
+  padding-top: 100px;
 }
 
-.login {
-  background: #42706b;
-  color: #fff;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  border: 1px solid #dcdcdc;
-  height: 500px;
+.min-vh-100 .loginButton:hover {
+  background-color: #cf6766;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+
+.min-vh-100 .loginButton {
+  background-color: #8eaebd;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: white;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.min-vh-100 .registerButton {
+  background-color: #cf6766;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+}
+
+.min-vh-100 .registerButton:hover {
+  background-color: #8eaebd;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
 }
