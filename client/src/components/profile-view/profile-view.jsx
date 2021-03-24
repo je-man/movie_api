@@ -41,21 +41,15 @@ export class ProfileView extends React.Component {
 
   formatDate(date) {
     if (date) date = date.substring(0, 10);
-    // d = d.setDate(d.getDate() + 1);
-
-    // var month = "" + (d.getMonth() + 1),
-    //   day = "" + d.getDate(),
-    //   year = d.getFullYear();
-
-    // if (month.length < 2) month = "0" + month;
-    // if (day.length < 2) day = "0" + day;
-
-    // return [year, month, day].join("-");
     return date;
   }
 
 
-
+  /**
+   * gets user information to display
+   * @param {number} token 
+   * @return {object} user's information
+   */
   getUser(token) {
     //console.log(localStorage.getItem("user"));
     let url =
@@ -77,6 +71,11 @@ export class ProfileView extends React.Component {
       });
   }
 
+  /**
+   * remove movie from user's list of favorites
+   * @param {number} movie
+   * @function removeFavorite 
+   */
   removeFavorite(movie) {
     let token = localStorage.getItem("token");
     let url =
@@ -95,6 +94,10 @@ export class ProfileView extends React.Component {
       alert('Remove ' + movie.Title + ' from your favorites');
   }
 
+  /**
+   * deletes the current user information from the database
+   * @function handleDelete
+   */
   handleDelete() {
     if (!confirm("Are you sure?")) return;
     let token = localStorage.getItem("token");
@@ -122,67 +125,7 @@ export class ProfileView extends React.Component {
 
     if (!movies) alert("Please sign in");
     return (
-      // <div className="userProfile">
-      //     <Form style={{ width: "30rem", float: "left" }}>
-      //       <h1 style={{ textAlign: "center" }}>Profile Details</h1>
-      //       <Form.Group controlId="formBasicUsername">
-      //         <h3>Username: </h3>
-      //         <Form.Label>{this.state.username}</Form.Label>
-      //       </Form.Group>
-      //       <Form.Group controlId="formBasicEmail">
-      //         <h3>Email:</h3>
-      //         <Form.Label>{this.state.email}</Form.Label>
-      //       </Form.Group>
-      //       <Form.Group controlId="formBasicDate">
-      //         <h3>Date of Birth:</h3>
-      //         <Form.Label>{this.state.dob}</Form.Label>
-      //       </Form.Group>
-      //       {
-      //         <Link to={`/update/${this.state.username}`}>
-      //           <Button variant="primary" type="link">
-      //             Edit
-      //           </Button>
-      //         </Link>
-      //       }
-      //       <Button variant="danger" onClick={() => this.handleDelete()}>
-      //         Delete User
-      //       </Button>
-      //       <Link to={`/`}>
-      //         <Button variant="light" type="submit">
-      //           Back
-      //         </Button>
-      //       </Link>
-      //     </Form>
-      
-      //     <div
-      //       className="favoriteMovies"
-      //       style={{
-      //         float: "right",
-      //         textAlign: "center",
-      //         width: "28rem",
-      //       }}
-      //     >
-      //       <h1>Favorite Movies</h1>
-      //       {favoriteMovieList.map((movie) => {
-      //         return (
-      //           <div key={movie._id}>
-      //             <Card>
-      //               <Card.Body>
-      //                 <Link to={`/movies/${movie._id}`}>
-      //                   {/* <Card.Title>{movie.Title}</Card.Title> */}
-      //                   <Card.Img className='text-left img card-img' src={movie.ImagePath}/>
-      //                 </Link>
-      //               </Card.Body>
-      //             </Card>
-      //             <Button onClick={() => this.removeFavorite(movie)}>
-      //               Remove
-      //             </Button>
-      //           </div>
-      //         );
-      //       })}
-      //     </div>
-      // </div>
-
+     
       <Container className="profileView">
         <div className="profileName">
           <img src={ProfilePic} />

@@ -1,98 +1,23 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// import Form from "react-bootstrap/Form";
-// import Container from "react-bootstrap/Container";
-// import Button from "react-bootstrap/Button";
-
-// export function LoginView(props) {
-//   const [ username, setUsername ] = useState('');
-//   const [ password, setPassword ] = useState('');
-
-//   // const handleSubmit = (e) => {
-//   //   e.preventDefault();
-//   //   console.log(username, password);
-//   //   /* Send a request to the server for authentication */
-//   //   /* then call props.onLoggedIn(username) */
-//   //   props.onLoggedIn(username);
-//   // };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     /* Send a request to the server for authentication */
-//     axios.post('https://ourflixapp.herokuapp.com/login', {
-//       Username: username,
-//       Password: password
-//     })
-//     .then(response => {
-//       const data = response.data;
-//       props.onLoggedIn(data);
-//     })
-//     .catch(e => {
-//       console.log('no such user')
-//     });
-//   };
-
-//   return (
-//     <Container style={{ width: "22rem" }}>
-//       <Form>
-//         <Form.Group controlId="formBasicUsername">
-//           <Form.Label>Username:</Form.Label>
-//           <Form.Control
-//             type="text"
-//             placeholder="Enter Username"
-//             value={username}
-//             onChange={e => setUsername(e.target.value)}
-//           />
-//         </Form.Group>
-
-//         <Form.Group controlId="formBasicPassword">
-//           <Form.Label>Password:</Form.Label>
-//           <Form.Control
-//             type="password"
-//             placeholder="Password"
-//             value={password}
-//             onChange={e => setPassword(e.target.value)}
-//           />
-//         </Form.Group>
-//         <Button type="button" onClick={handleSubmit}>
-//           Login
-//         </Button>
-
-//         {/* <Form.Group controlId="newUser">
-//           <Form.Text>
-//             <Link to={`/register`}>
-//               <Button id="registerButton">Sign Up!</Button>
-//             </Link>
-//             <h6> To access more features! </h6>
-//           </Form.Text>
-//         </Form.Group> */}
-//       </Form>
-//     </Container>
-//   );
-// }
-
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./login-view.scss";
-// import logo from './logo.png';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { setUsername } from "../../actions/actions";
 
-// const mapStateToProps = (state) => {
-//   const { user } = state;
-//   return { user };
-// };
-
 function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // const { user } = props;
+  /**
+   * post the username and password to login
+   * @function handleSubmit
+   * @param {event}
+   * @return {object} User information
+   */
 
   const handleSubmit = (e) => {
     // console.log("submit");

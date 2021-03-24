@@ -23,6 +23,13 @@ export function RegistrationView(props) {
   //   props.logInFunc(username);
   // };
 
+  /**
+   * Register a new user
+   * @param {string} Username
+   * @param {string} Password
+   * @param {string} Email
+   * @param {date} Birthday
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 

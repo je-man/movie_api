@@ -12,6 +12,13 @@ export default function UpdateView(props) {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
+  /**
+   * update user information
+   * @param {string} Username
+   * @param {string} Password
+   * @param {string} Email
+   * @param {date} Birthday
+   */
   const handleUpdate = (e) => {
     e.preventDefault();
     const url =

@@ -9,6 +9,10 @@ import PropTypes from 'prop-types';
 
 export class MovieView extends React.Component {
 
+  /**
+   * add movie to the favorite list
+   * @param {*} movie 
+   */
   addFavorite(movie) {
     let token = localStorage.getItem("token");
     let url =
