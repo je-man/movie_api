@@ -230,6 +230,7 @@ class MainView extends React.Component {
             director={movies.find(
               (m) => m.Director.Name === match.params.name
             ).Director}
+            movie={movies.find((m) => m._id === match.params.movieId)}
             // movies={movies}
             // addToFavourites={() => addToFavourites(movie)}
           />

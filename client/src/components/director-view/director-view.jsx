@@ -14,7 +14,7 @@ export class DirectorView extends React.Component {
   }
 
   render() {
-    const { director } = this.props;
+    const { director, movie } = this.props;
 
     if (!director) return null;
 
@@ -24,9 +24,9 @@ export class DirectorView extends React.Component {
           <Card.Title>Director: {director.Name}</Card.Title>
           <Card.Text>Description: {director.Bio}</Card.Text>
          
-          <Link to={`/`}>
-            <Button variant="primary">Back</Button>
-          </Link>
+          {/* <Link to={`/movies/${movie._id}`}> */}
+            <Button variant="primary" onClick={() => window.history.back()}>Back</Button>
+          {/* </Link> */}
         </Card.Body>
       </Card>
     );
