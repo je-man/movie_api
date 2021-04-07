@@ -53383,74 +53383,37 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var movie = this.props.movie;
-      return (// <Card style={{ width: '50%' }}>
-        //   <Col>
-        //     <Card.Body>
-        //       <Card.Header className='text-center'>
-        //         <Link className='link-color' to={`/movies/${movie._id}`}>
-        //           <strong>{movie.Title}</strong>
-        //         </Link>
-        //       </Card.Header>
-        //       <Row>
-        //         <Col sm={6}>
-        //           <br />
-        //           <Card.Img
-        //             className='text-left img'
-        //             src={movie.ImagePath}
-        //           />
-        //         </Col>
-        //         <Col sm={6}>
-        //           <br />
-        //           <Card.Text className='text-center'>
-        //             {movie.Description}
-        //           </Card.Text>
-        //           <br />
-        //           <Link to={`/movies/${movie._id}`}>
-        //             <Button variant='card dark link'>Open</Button>
-        //           </Link>
-        //           <Link>
-        //             <Button variant="card dark link" onClick={() => this.addFavorite(movie)}>
-        //               Add Favorite
-        //             </Button>
-        //           </Link> 
-        //         </Col>
-        //         <br />
-        //       </Row>
-        //     </Card.Body>
-        //   </Col>
-        // </Card>
-        _react.default.createElement("div", {
-          className: "movie-card mx-auto"
-        }, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, {
-          className: "col-sm",
-          md: "4"
-        }, _react.default.createElement(_reactBootstrap.Card, {
-          style: {
-            width: '20rem'
-          }
-        }, _react.default.createElement(_reactBootstrap.Card.Img, {
-          variant: "top",
-          className: "text-left img",
-          src: movie.ImagePath
-        }), _react.default.createElement(_reactBootstrap.Card.Body, {
-          className: "p-4"
-        }, _react.default.createElement(_reactBootstrap.Card.Title, null, _react.default.createElement(_reactRouterDom.Link, {
-          className: "link-color cardTitle",
-          to: "/movies/".concat(movie._id)
-        }, _react.default.createElement("strong", null, movie.Title), _react.default.createElement(_reactRouterDom.Link, {
-          to: "/movies/".concat(movie._id)
-        }, _react.default.createElement(_reactBootstrap.Badge, {
-          variant: "primary link text float-right"
-        }, "open"))), _react.default.createElement("hr", {
-          className: "hr-light"
-        })), _react.default.createElement(_reactBootstrap.Card.Text, {
-          className: "text-left"
-        }, _react.default.createElement("div", {
-          className: "float-left"
-        }, movie.Genre.Name), _react.default.createElement("div", {
-          className: "float-right"
-        }, movie.Director.Name)))))))
-      );
+      return _react.default.createElement("div", {
+        className: "movie-card mx-auto"
+      }, _react.default.createElement(_reactBootstrap.Row, null, _react.default.createElement(_reactBootstrap.Col, {
+        className: "col-sm",
+        md: "4"
+      }, _react.default.createElement(_reactBootstrap.Card, {
+        style: {
+          width: '20rem'
+        }
+      }, _react.default.createElement(_reactBootstrap.Card.Img, {
+        variant: "top",
+        className: "text-left img",
+        src: movie.ImagePath
+      }), _react.default.createElement(_reactBootstrap.Card.Body, {
+        className: "p-4"
+      }, _react.default.createElement(_reactBootstrap.Card.Title, null, _react.default.createElement(_reactRouterDom.Link, {
+        className: "link-color cardTitle",
+        to: "/movies/".concat(movie._id)
+      }, _react.default.createElement("strong", null, movie.Title), _react.default.createElement(_reactRouterDom.Link, {
+        to: "/movies/".concat(movie._id)
+      }, _react.default.createElement(_reactBootstrap.Badge, {
+        variant: "primary link text float-right"
+      }, "open"))), _react.default.createElement("hr", {
+        className: "hr-light"
+      })), _react.default.createElement(_reactBootstrap.Card.Text, {
+        className: "text-left"
+      }, _react.default.createElement("div", {
+        className: "float-left"
+      }, movie.Genre.Name), _react.default.createElement("div", {
+        className: "float-right"
+      }, movie.Director.Name)))))));
     }
   }]);
 
@@ -53700,10 +53663,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this);
     _this.state = {};
     return _this;
-  } //   refreshPage() {
-  //     window.location.reload(false);
-  //   }
-
+  }
 
   _createClass(MovieView, [{
     key: "render",
@@ -53712,73 +53672,43 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
 
       var movie = this.props.movie;
       if (!movie) return null;
-      return (// <div className="movie-view">
-        //   <img className="movie-poster" style={{width: "300px", height: "400px"}} src={movie.ImagePath} />
-        //   <div className="movie-title">
-        //     <span className="label">Title: </span>
-        //     <span className="value">{movie.Title}</span>
-        //   </div>
-        //   <div className="movie-description">
-        //     <span className="label">Description: </span>
-        //     <span className="value">{movie.Description}</span>
-        //   </div>
-        //   <div className="movie-genre">
-        //     {/* <span className="label">Genre: </span>
-        //     <span className="value">{movie.Genre.Name}</span> */}
-        //     <Link to={`/director/${movie.Director.Name}`}>
-        //       <Button variant="link">Director: {movie.Director.Name}</Button>
-        //     </Link>
-        //   </div>
-        //   <div className="movie-director">
-        //     {/* <span className="label">Director: </span>
-        //     <span className="value">{movie.Director.Name}</span> */}
-        //     <Link to={`/genres/${movie.Genre.Name}`}>
-        //       <Button variant="link">Genre : {movie.Genre.Name} </Button>
-        //     </Link>
-        //   </div>
-        //     <br></br>
-        //     <Link to={`/`}>
-        //       <Button variant="primary">Home</Button>
-        //     </Link>
-        //  </div>
-        _react.default.createElement(_Card.default, {
-          className: "movieView-card",
-          style: {
-            width: '45rem'
-          }
-        }, _react.default.createElement(_Card.default.Img, {
-          className: "movie-poster",
-          src: movie.ImagePath
-        }), _react.default.createElement(_Card.default.Body, {
-          className: "movieView-body"
-        }, _react.default.createElement(_Card.default.Title, {
-          className: "movieView-title"
-        }, _react.default.createElement("span", {
-          className: "label"
-        }), _react.default.createElement("span", {
-          className: "value"
-        }, movie.Title), _react.default.createElement(_reactRouterDom.Link, null, _react.default.createElement(_Button.default, {
-          className: "float-right",
-          variant: "card dark link",
-          onClick: function onClick() {
-            return _this2.addFavorite(movie);
-          }
-        }, "Add to favorites"))), _react.default.createElement(_Card.default.Text, {
-          className: "movie-description"
-        }, _react.default.createElement("span", {
-          className: "value"
-        }, movie.Description)), _react.default.createElement("div", {
-          className: "movie-genre"
-        }, _react.default.createElement(_reactRouterDom.Link, {
-          to: "/director/".concat(movie.Director.Name)
-        }, _react.default.createElement(_Badge.default, null, "Director: ", movie.Director.Name))), _react.default.createElement("div", {
-          className: "movie-director"
-        }, _react.default.createElement(_reactRouterDom.Link, {
-          to: "/genres/".concat(movie.Genre.Name)
-        }, _react.default.createElement(_Badge.default, null, "Genre : ", movie.Genre.Name, " "))), _react.default.createElement("br", null), _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Link, {
-          to: "/"
-        }, _react.default.createElement(_Badge.default, null, "Home")))))
-      );
+      return _react.default.createElement(_Card.default, {
+        className: "movieView-card",
+        style: {
+          width: '30rem'
+        }
+      }, _react.default.createElement(_Card.default.Img, {
+        className: "movie-poster",
+        src: movie.ImagePath
+      }), _react.default.createElement(_Card.default.Body, {
+        className: "movieView-body"
+      }, _react.default.createElement(_Card.default.Title, {
+        className: "movieView-title"
+      }, _react.default.createElement("span", {
+        className: "label"
+      }), _react.default.createElement("span", {
+        className: "value"
+      }, movie.Title), _react.default.createElement(_reactRouterDom.Link, null, _react.default.createElement(_Button.default, {
+        className: "float-right",
+        variant: "card dark link",
+        onClick: function onClick() {
+          return _this2.addFavorite(movie);
+        }
+      }, "Add to favorites"))), _react.default.createElement(_Card.default.Text, {
+        className: "movie-description"
+      }, _react.default.createElement("span", {
+        className: "value"
+      }, movie.Description)), _react.default.createElement("div", {
+        className: "movie-genre"
+      }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/director/".concat(movie.Director.Name)
+      }, _react.default.createElement(_Badge.default, null, "Director: ", movie.Director.Name))), _react.default.createElement("div", {
+        className: "movie-director"
+      }, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/genres/".concat(movie.Genre.Name)
+      }, _react.default.createElement(_Badge.default, null, "Genre : ", movie.Genre.Name, " "))), _react.default.createElement("br", null), _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Link, {
+        to: "/"
+      }, _react.default.createElement(_Badge.default, null, "Home")))));
     }
   }]);
 
@@ -53859,13 +53789,14 @@ var GenreView = /*#__PURE__*/function (_React$Component) {
       if (!genre) return null;
       return _react.default.createElement(_Card.default, {
         style: {
-          width: "40rem"
+          width: "30rem"
         }
-      }, _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_Card.default.Title, null, "Genre: ", genre.Name), _react.default.createElement(_Card.default.Text, null, "Description: ", genre.Description), _react.default.createElement(_reactRouterDom.Link, {
-        to: "movies/".concat(movie)
-      }, _react.default.createElement(_Button.default, {
-        variant: "primary"
-      }, "Back"))));
+      }, _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_Card.default.Title, null, "Genre: ", genre.Name), _react.default.createElement(_Card.default.Text, null, "Description: ", genre.Description), _react.default.createElement(_Button.default, {
+        variant: "primary",
+        onClick: function onClick() {
+          return window.history.back();
+        }
+      }, "Back")));
     }
   }]);
 
@@ -53946,7 +53877,7 @@ var DirectorView = /*#__PURE__*/function (_React$Component) {
       if (!director) return null;
       return _react.default.createElement(_Card.default, {
         style: {
-          width: "40rem"
+          width: "30rem"
         }
       }, _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_Card.default.Title, null, "Director: ", director.Name), _react.default.createElement(_Card.default.Text, null, "Description: ", director.Bio), _react.default.createElement(_Button.default, {
         variant: "primary",
@@ -61279,15 +61210,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, MainView);
 
-    // Call the superclass constructor
-    // so React can initialize it
-    _this = _super.call(this); // Initialize the state to an empty object so we can destructure it later
-    // this.state = {
-    //   movies: null,
-    //   selectedMovie: null,
-    //   user: null
-    // };
-
+    _this = _super.call(this);
     _this.state = {
       user: null
     };
@@ -61377,8 +61300,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       // before the data is initially loaded
       // #2
       var movies = this.props.movies;
-      var user = this.state.user; //if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-      // Before the movies have been loaded
+      var user = this.state.user; // Before the movies have been loaded
 
       if (!movies) return _react.default.createElement("div", {
         className: "main-view"
@@ -61419,10 +61341,6 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       }, _react.default.createElement("div", null, _react.default.createElement(_Nav.default, {
         className: ""
       }, _react.default.createElement(_Nav.default.Link, {
-        href: "#home"
-      }, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/"
-      }, "Home")), _react.default.createElement(_Nav.default.Link, {
         href: "#features"
       }, _react.default.createElement(_reactRouterDom.Link, {
         to: _about.About
@@ -61732,7 +61650,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50104" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57939" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

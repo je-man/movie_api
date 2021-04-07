@@ -31,16 +31,8 @@ import { Footer } from '../header/footer';
 
 class MainView extends React.Component {
   constructor() {
-    // Call the superclass constructor
-    // so React can initialize it
+    
     super();
-
-    // Initialize the state to an empty object so we can destructure it later
-    // this.state = {
-    //   movies: null,
-    //   selectedMovie: null,
-    //   user: null
-    // };
 
     this.state = {
       user: null
@@ -124,8 +116,6 @@ class MainView extends React.Component {
     let { movies } = this.props;
     let { user } = this.state;
 
-   //if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-
     // Before the movies have been loaded
     if (!movies) return <div className="main-view"/>;
 
@@ -155,11 +145,6 @@ class MainView extends React.Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <div>
                         <Nav className="">
-                        <Nav.Link href="#home">
-                           <Link to={`/`}>
-                              Home 
-                           </Link>
-                        </Nav.Link>
                         <Nav.Link href="#features">
                           <Link to={About}>
                             About

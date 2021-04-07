@@ -19,14 +19,11 @@ export class DirectorView extends React.Component {
     if (!director) return null;
 
     return (
-      <Card style={{ width: "40rem" }}>
+      <Card style={{ width: "30rem" }}>
         <Card.Body>
           <Card.Title>Director: {director.Name}</Card.Title>
           <Card.Text>Description: {director.Bio}</Card.Text>
-         
-          {/* <Link to={`/movies/${movie._id}`}> */}
             <Button variant="primary" onClick={() => window.history.back()}>Back</Button>
-          {/* </Link> */}
         </Card.Body>
       </Card>
     );

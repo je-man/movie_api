@@ -78,44 +78,6 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
 
     return (
-      // <Card style={{ width: '50%' }}>
-      //   <Col>
-      //     <Card.Body>
-      //       <Card.Header className='text-center'>
-      //         <Link className='link-color' to={`/movies/${movie._id}`}>
-      //           <strong>{movie.Title}</strong>
-      //         </Link>
-      //       </Card.Header>
-
-      //       <Row>
-      //         <Col sm={6}>
-      //           <br />
-      //           <Card.Img
-      //             className='text-left img'
-      //             src={movie.ImagePath}
-      //           />
-      //         </Col>
-      //         <Col sm={6}>
-      //           <br />
-      //           <Card.Text className='text-center'>
-      //             {movie.Description}
-      //           </Card.Text>
-      //           <br />
-      //           <Link to={`/movies/${movie._id}`}>
-      //             <Button variant='card dark link'>Open</Button>
-      //           </Link>
-      //           <Link>
-      //             <Button variant="card dark link" onClick={() => this.addFavorite(movie)}>
-      //               Add Favorite
-      //             </Button>
-      //           </Link> 
-      //         </Col>
-      //         <br />
-      //       </Row>
-      //     </Card.Body>
-      //   </Col>
-      // </Card>
-
     <div className="movie-card mx-auto">
       <Row>
           <Col className="col-sm" md='4'>
